@@ -1,0 +1,50 @@
+.filter-sidebar{
+    background-color: white;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); */
+    width: 20%;
+    height: fit-content;
+    padding: 16px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    position: sticky;
+    top: 92px; /* Sticks to the top of the page while scrolling */
+}
+.filter-sidebar h2{
+    font-size: 1.25rem;
+    margin: 0px;
+}
+.filter-header{
+border: none;
+height: auto;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+.filter-selection{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+.filter-header h4{
+    margin: 0%;
+    color: #888888;
+}
+.clearfilter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.textedbutton {
+    background: none;
+    border: none;
+    color: #d32f2f; /* Choose any color you like */
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 16px; /* Adjust size as needed */
+  }
+  
+  .textedbutton:hover {
+    color: #d32f2f; /* Darken on hover */
+  }

@@ -1,0 +1,155 @@
+.packagelisting{
+    background-color: #edf1fa;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+@media screen and (max-width: 768px) {
+    .booking-summary {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      border-radius: 8px 8px 0 0;
+      box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000; /* Ensures it's above other elements */
+    }
+  }
+  
+.Itinerarytittle{
+    margin: min(0rem, 3vw) min(8rem, 8vw) min(0rem, 3vw) min(8rem, 8vw);
+    padding: 1rem 0rem;
+    font-size: clamp(16px, 3vw, 24px);
+}
+.package-itinerary{
+    top: 75px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.package-t-d{
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.packagetittle{
+    margin: min(0rem, 3vw) min(8rem, 8vw) min(0rem, 3vw) min(8rem, 8vw);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0rem;
+}
+.packagetittleh3{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.packagetittleh3 h3{
+    margin:0px;
+    font-size: 1.5rem;
+}
+.packagetittleh3 p{
+    margin:0px;
+    font-size: 1rem;
+}
+.requestcallback{
+    width: 20%;
+    padding: 1rem 1.8rem;
+    text-wrap: nowrap;
+    font-size: 1rem;
+    border: none;
+    background: linear-gradient(90deg, #ff5f6d, #ffc371);
+    border-radius: 0.25rem;
+    color: white;
+    cursor: pointer;
+}
+.listingtittledescription{
+    background-color: white;
+    color: #1e1e1e;
+    margin: min(0rem, 3vw) min(8rem, 8vw) min(0rem, 3vw) min(8rem, 8vw);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 1rem;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); */
+}
+.listingtittle{
+    margin: 0px;
+}
+.packageheading{
+    margin: min(0rem, 3vw) min(8rem, 8vw) min(0rem, 3vw) min(8rem, 8vw);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.packageheading h3{
+    margin: 0%;
+}
+@media (max-width: 850px) {
+    .packagetittle {
+        margin: min(0rem, 3vw) min(5rem, 5vw) min(0rem, 0vw) min(5rem, 5vw);
+        gap: 1rem;
+    }
+    .Itinerarytittle{
+        margin: min(0rem, 3vw) min(5rem, 5vw) min(0rem, 0vw) min(5rem, 5vw);
+    }
+    .package-itinerary{
+        top: 56px;
+        padding-bottom: 136px;
+    }
+    .listingtittledescription {
+        margin: min(0rem, 3vw) min(5rem, 5vw) min(0rem, 0vw) min(5rem, 5vw);
+    }
+    .packageheading {
+        margin: min(0rem, 3vw) min(5rem, 5vw) min(0rem, 0vw) min(5rem, 5vw);
+    }
+    .packagetittleh3{
+        width: 70%;
+    }
+    .requestcallback{
+        width: 30%;
+    }
+    .textfield_itinerary{
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+@media (max-width: 540px) {
+    .packagetittleh3{
+        width: 60%;
+        gap: 0.3rem;
+    }
+    .packagetittleh3 h3 {
+        font-size: 1rem;
+    }
+    .packagetittleh3 p {
+        font-size: 0.7rem;
+    }
+    .requestcallback{
+        width: 40%;
+        padding: 0.8rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    .packagedurationprice p{
+        font-size: 0.8rem;
+    }
+    .packageexpertise p{
+        font-size: 0.8rem;
+    }
+    .packagedurationprice h4{
+        font-size: 1rem;
+    }
+    .packageexpertise p{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    }
+    .packageheading h3{
+        font-size: 1rem;
+    }
+}

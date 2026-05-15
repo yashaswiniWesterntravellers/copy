@@ -1,0 +1,18 @@
+.Mapview-button {
+    color: #50A9FF;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.Mapview-button-icon{
+    font-size: 20px;
+}
+.Mapview{
+    display: flex;
+    flex-direction: row;
+}
+.Mapview p{
+    margin: 0%;
+}

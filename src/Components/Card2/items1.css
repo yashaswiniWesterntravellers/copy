@@ -1,0 +1,123 @@
+/* App.css */
+.app-container1 {
+  padding: 20px;
+  background-color: #FCF3E9;
+  height: 540px;
+}
+
+.h1visa {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 160px;
+}
+
+.slick-slider {
+  margin: 0 auto;
+  position: relative;
+}
+.app-container1 .slider{
+  margin: 0px 160px;
+ }
+
+
+.single-card {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center the single card in the middle column */
+  height: 542px;
+}
+
+.card1 {
+  flex: 1;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.card-image1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+}
+.card-image1 img{
+  width: 100%;
+}
+.multi-column-layout {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+}
+.column1 {
+  width: 33.5%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.column2 {
+  width: 33.5%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.column3 {
+  width: 33.5%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+}
+.slick-prev:before {
+  content: none;
+}
+.slick-next:before {
+  content: none;
+}
+
+
+.destination-name1 {
+  position: absolute;
+  bottom: 31.6px;
+  background-color: white;
+  color: #1E1E1E;
+  padding: 8px 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin: 0;
+  white-space: nowrap;
+}
+.text-overlay1 {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  align-items: center;
+
+  }
+
+.card-price1 {
+  position: absolute;
+  padding: -10px;
+  bottom: 0px;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+}

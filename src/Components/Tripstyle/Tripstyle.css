@@ -1,0 +1,226 @@
+.trip-style-container {
+    background-color: #374047; /* Dark background */
+    color: white;
+    margin: min(2rem, 3vw) min(10rem, 10vw) min(2rem, 3vw) min(10rem, 10vw);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 1.25rem;
+    max-width: 100%;
+     display: flex;
+     gap: 1rem;
+     flex-direction: column;
+    /* margin: 40px 160px; */
+    /* height: auto; */
+}
+
+.trip-style-heading h1 {
+    font-family: 'amita';
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0%;
+    margin-top: 0px;
+}
+
+.trip-style-heading span {
+    color: #ffc371;
+}
+
+.trip-style-content {
+    /* height: 28.125rem; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5%;
+}
+
+.trip-options {
+    width: 20%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.trip-option {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.trip-option h2 {
+    font-family: 'amita';
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0px;
+    color: white;
+}
+
+.trip-option p {
+    font-family: 'Manrope';
+    font-size: 1.12rem;
+    font-weight: lighter;
+    color: #D4D4D4;
+    margin: 0px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    color: #ffc371;
+    font-size: 1rem;
+}
+
+.details span {
+    margin-right: 0.625rem;
+}
+
+.trip-image {
+    background-image: url('../../Assets/Background 1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* position: relative; */
+    width: 55%;
+    max-width: 100%;
+    height: 450px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: end;
+    padding: 2%;
+}
+/* Overlay styles */
+.trip-image ul {
+    width: 100%;
+    height: 140px;
+    margin: 0%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15% 10%;
+    padding: 0%;
+    border-radius: 10px;
+    align-items: end;
+}
+.trip-image li{
+    background-color: #fae0a8;
+    color: black;
+    padding: 10px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.trip-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.space{
+    display: flex;
+    flex-direction: row;
+    gap: 60%;
+}
+.spacebetween{
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 20%;
+    margin: 0%;
+}
+
+.trip-overlay {
+    position: absolute;
+    bottom: -89%;
+    left: 27%;
+}
+
+.overlay-option {
+    /* width: 182px; */
+    background-color: #fae0a8;
+    color: black;
+    padding: 5px 16px 5px 7px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.tripicon{
+    background-color: #374047;
+    font-size: 40px;
+    padding: 8px;
+    border-radius: 10px;
+    color: white;
+}
+
+
+@media (max-width: 853px) {
+    .trip-style-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .trip-options {
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .trip-image {
+        /* margin: 20px 0; */
+        width: 100%;
+        padding: 6%;
+        order: -1;
+    }
+    .trip-image ul{
+        height: 140px;
+    }
+    .trip-style-heading h1 {
+        font-size: 2rem;
+    }
+}
+@media (max-width: 540px) {
+    .trip-style-container{
+        /* position: relative; */
+        margin: min(2rem, 3vw) min(5rem, 5vw) min(2rem, 3vw) min(5rem, 5vw);
+        padding: 1rem;
+    }
+    .trip-options{
+        flex-direction: row;
+    }
+    .trip-image{
+        height: 350px;
+    }
+    .trip-image ul{
+        height: 80px;
+    }
+    .trip-image li{
+        padding: 5px 8px;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+    .tripicon{
+        font-size: 24px;
+        padding: 6px;
+        border-radius: 6px;
+    }
+    .trip-option h2{
+        font-size: 1.4rem;
+    }
+    .trip-option p{
+        font-size: 0.9rem;
+    }
+    .trip-style-heading h1 {
+        font-size: 1.5rem;
+    }
+}

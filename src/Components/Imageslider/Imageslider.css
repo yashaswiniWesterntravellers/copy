@@ -1,0 +1,84 @@
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px 40px 30px 40px;
+  position: relative;
+  width: 100%; /* Adjusted for responsiveness */
+  max-width: 700px; /* Sets a max width */
+  border-radius: 4px;
+  align-items: center;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Adds slight shadow for better visibility */
+}
+
+.slick-slider {
+  margin: 0;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 4000;
+}
+
+.slider-image-container {
+  display: flex !important;
+  justify-content: center;
+  padding: 30px;
+}
+
+.slider-image {
+  width: 100%;
+  max-height: 350px; /* Ensures image doesn't overflow the modal */
+  object-fit: cover; /* Maintain aspect ratio */
+}
+.modal-content .slick-prev{
+  left: -20px;
+}
+.modal-content .slick-next{
+  right: -20px;
+}
+@media (max-width: 850px){
+.modal-content{
+  width: 80%;
+  padding: 0.5rem;
+}
+.modal-content .slick-prev{
+  left: 0px;
+  z-index: 4000;
+}
+.modal-content .slick-next{
+  right: 0px;
+}
+.modal-overlay{
+  padding-top: 20%;
+  align-items: start;
+}
+.slider-image-container{
+  padding: 20px;
+}
+.close-button{
+  right: 0%;
+}
+}
+
+
+

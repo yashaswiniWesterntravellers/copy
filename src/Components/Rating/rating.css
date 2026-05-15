@@ -1,0 +1,23 @@
+
+.ratingyes{
+    color: #ffc371;
+}
+.norating{
+    color: #e7e7e7;
+}
+.rating{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1px 5px;
+    color: #374047;
+    font-size: medium;
+    gap: 6px;
+}
+.ratingicon{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

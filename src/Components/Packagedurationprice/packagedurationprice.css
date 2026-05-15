@@ -1,0 +1,60 @@
+.packagedurationpricerating{
+    background-color: white;
+    margin: min(0rem, 3vw) min(8rem, 8vw) min(0rem, 3vw) min(8rem, 8vw);
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+}
+.packagedurationprice{
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    object-fit: cover;
+    border-radius: 8px;
+    padding: 1rem;
+}
+.Ratingstars{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+.packagedurationprice h4{
+    margin: 0px;
+}
+.packagedurationprice p{
+    margin: 0px;
+    color: #888888;
+}
+.packageexpertise{
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    object-fit: cover;
+    align-items: end;
+    border-radius: 8px;
+    padding: 1rem;
+}
+.packageexpertise h4{
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    justify-content: center;
+}
+.packageexpertise p{
+    margin: 0px;
+    color: #888888;
+}
+@media (max-width: 850px){
+    .packagedurationpricerating{
+        margin: min(0rem, 3vw) min(5rem, 5vw) min(0rem, 0vw) min(5rem, 5vw);
+    }
+    .packagedurationprice{
+        padding: 0.5rem;
+    }
+    .packageexpertise{
+        padding: 0.5rem;
+    }
+}

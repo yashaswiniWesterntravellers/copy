@@ -1,0 +1,12 @@
+.change-hotel-container{
+    padding: 0px 160px;
+}
+.change-hotel{
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.change-hotel h3{
+    margin: 0%;
+}

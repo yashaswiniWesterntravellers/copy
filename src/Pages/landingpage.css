@@ -1,0 +1,50 @@
+/* Prevent interaction when modal is open */
+.modal-active .l-packages {
+    filter: blur(5px); /* Blur effect */
+    pointer-events: none; /* Disable interaction */
+  }
+  
+  /* Overlay to hide the background */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+    z-index: 999; /* Ensure it's on top */
+  }
+  
+@media (max-width: 768px){
+    .l-packages{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 28%;
+    }
+}
+@media (max-width: 540px){
+    .l-packages{
+        top: 38%;
+    }
+}
+@media (max-width: 475px){
+    .l-packages{
+        top: 26%;
+    }
+}
+@media (max-width: 375px){
+    .l-packages{
+        top: 36%;
+    }
+}
+@media (max-width: 360px){
+    .l-packages{
+        top: 32%;
+    }
+}
+@media (max-width: 344px){
+    .l-packages{
+        top: 26%;
+    }
+}

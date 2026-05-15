@@ -1,0 +1,48 @@
+
+  .packagefilter{
+    margin: min(0rem, 3vw) min(8rem, 8vw) min(0rem, 3vw) min(8rem, 8vw);
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+  
+  .filter-container {
+    position: relative;
+    height: auto;
+    flex: 0 0 300px; /* Set a fixed width for the filter */
+  }
+  
+  .filter-container .filter-sidebar {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto; /* Scroll within the filter if it exceeds the viewport height */
+  }
+  
+  .listing-container {
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 100vh; /* Limit the height to viewport */
+  }
+  
+  /* Add custom scrollbar styling if needed */
+  .listing-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .listing-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+  
+  .listing-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  @media (max-width: 850px){
+    .packagefilter{
+        margin: min(0rem, 3vw) min(5rem, 5vw) min(0rem, 0vw) min(5rem, 5vw);
+    }
+}
+  

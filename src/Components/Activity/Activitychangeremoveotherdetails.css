@@ -1,0 +1,70 @@
+.Activity-summary-container {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    position: -webkit-sticky; /* Safari support */
+    position: sticky;
+    top: 200px; /* Adjust based on the height of the Navbar */
+    z-index: 900;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+.change-activity-button{
+    width: 100%;
+    background-color: #fff;
+    color: #ffbc26;
+    border: 2px solid #ffbc26;
+    height: 50px;
+    border-radius: 4px;
+    font-size: medium;
+}
+.changeactivity-remove{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: #374047;
+}
+.remove-button{
+    width: 50%;
+    background-color: #fff;
+    color: #D2635C;
+    border: 2px solid #D2635C;
+    height: 50px;
+    border-radius: 4px;
+    font-size: medium;
+}
+.Activity-Type{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+}
+.Activity-Type p{
+    margin: 0%;
+    color: #888888;
+    white-space: nowrap;
+}
+.Activity-icon{
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    color: #888888;
+}
+.Activity-Details{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.Activity-Details p{
+    margin: 0%;
+    color: #888888;
+}
+.Activity-Details h4{
+    margin: 0%;
+    color: #1e1e1e;
+}

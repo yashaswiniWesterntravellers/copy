@@ -1,0 +1,157 @@
+  /* Banner */
+  .d-m-banner {
+    text-align: center;
+    background-image: url('../../Assets/Background 2.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    height: 30rem;
+    font-family: 'Amita';
+  }
+  .banner-image{
+    width: 100%;
+    height: 100%;
+    padding: 3.12rem 1.25rem;
+    text-align: center;
+    background-color: rgba(27, 27, 27, 0.7); /* #1B1B1B with 70% opacity */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Prevent background from being visible when modal is open */
+.modal-open .banner-image {
+  filter: blur(5px);  /* Blur effect */
+  pointer-events: none;  /* Disable clicks */
+}
+
+/* Overlay to cover background */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);  /* Dark overlay */
+  z-index: 999;  /* Above everything */
+}
+
+  
+  .banner-text h1 {
+    font-size: 5rem;
+    margin: 0 0 15px;
+    text-wrap: nowrap;
+  }
+  
+  .banner-text p {
+    font-size: 1.6rem;
+    margin: 0 0 20px;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    border: 4px solid #FFBC26;  /* Light green border */
+    border-radius: 30px; /* Rounded corners */
+    padding: 5px 10px;
+    background-color: white;
+    width: 100%;
+    max-width: 400px; /* Adjust width as needed */
+}
+.search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: gray;
+    text-align: start;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.search-icon {
+    width: 35px;
+    height: 35px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    margin: 0%;
+    cursor: pointer;
+}
+.search-icon-landing-page{
+  width: 100%;
+  height: 100%;
+}
+
+  .search-button {
+    background-color: #fff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .search-button i {
+    font-size: 1.2rem;
+  }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .d-m-banner{
+            max-height: 15rem;
+        }
+        .banner-image{
+          padding: 2.12rem 1.25rem 2.12rem 1.25rem;
+        }
+        .banner-text h1 {
+          font-size: 2.8rem;
+          margin-bottom: 0.5rem;
+        }
+      
+        .banner-text p {
+          font-size: 1rem;
+        }
+      
+        .search-input {
+          width: 80%;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .d-m-banner{
+            max-height: 12rem;
+        }
+        .banner-image{
+          padding: 2.12rem 1.25rem 1.12rem 1.25rem;
+          justify-content: center;
+        }
+        .banner-text h1 {
+          font-size: 2rem;
+          margin-bottom: 0.5rem;
+        }
+      
+        .banner-text p {
+          font-size: 0.7rem;
+        }
+      
+        .search-container {
+          flex-direction: column;
+          gap: 10px;
+        }
+      
+        .search-input {
+          width: 100%;
+          border-radius: 50px;
+        }
+      
+        .search-button {
+          width: 100%;
+          border-radius: 50px;
+        }
+      }
+      

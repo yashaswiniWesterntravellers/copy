@@ -1,0 +1,78 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+.mobilenavigation{
+    width: 100%;
+    position: absolute;
+    top: 19%;
+    padding: 1.25rem;
+}
+.packages{
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  padding: 0.625rem 1rem;
+  border-radius: 0.25rem;
+  color: #FFBC26;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.package-items{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #FFBC26;
+}
+.package-items img{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+@media (max-width: 768px){
+  .packages{
+    justify-content: space-around;
+  }
+  .mobilenavigation{
+    top: 18%;
+}
+}
+@media (max-width: 540px){
+  .packages{
+    justify-content: space-between;
+  }
+  .mobilenavigation{
+    top: 25%;
+}
+.package-items{
+  font-size: 0.8rem;
+}
+}
+@media (max-width: 440px){
+  .mobilenavigation{
+    top: 14%;
+}
+.package-items{
+  font-size: 0.8rem;
+}
+}
+@media (max-width: 375px){
+  .mobilenavigation{
+    top: 19%;
+}
+}
+@media (max-width: 360px){
+  .mobilenavigation{
+    top: 17%;
+}
+}
+@media (max-width: 344px){
+  .mobilenavigation{
+    top: 14%;
+}
+}
