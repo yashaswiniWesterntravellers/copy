@@ -4,7 +4,6 @@ import "./searchdestinationmodal.css";
 import image from "../../Assets/Bhutan.jpg";
 
 export default function DestinationModal({ isOpen, onClose }) {
-    if (!isOpen) return null;
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedDestination, setSelectedDestination] = useState(null);
     const [selectedDuration, setSelectedDuration] = useState(null);
@@ -55,6 +54,9 @@ const [errorMessage, setErrorMessage] = useState("");
             ]);
             const [availableCities, setAvailableCities] = useState(citiesByDestination);
             const navigate = useNavigate();
+
+    if (!isOpen) return null;
+
     // Handle Destination Click
     const handleDestinationClick = (destination) => {
             setSelectedDestination(destination);
@@ -156,7 +158,7 @@ const handleRemoveCity = (city) => {
 
     // **Fix:** Close the popup if no cities are left
     if (updatedCities.length === 0) {
-        setShowPopup(false);
+        setShowCityModal(false);
     }
 };
 

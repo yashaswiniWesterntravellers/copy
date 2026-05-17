@@ -1120,11 +1120,7 @@ export default function Packageitinerary() {
         );
         
                   // Find the package by id
-                  const packageData = packages.find(pkg => pkg.id === parseInt(id));
-
-                            if (!packageData) {
-                              return <h1>Exclusion data not found</h1>;
-                            }
+                  const packageData = packages.find(pkg => pkg.id === parseInt(id, 10));
 
                             const { addedHotel, addedActivity, removeActivity, day, schedule } = location.state || {};
 
@@ -1242,21 +1238,9 @@ if (addedActivity) {
                               setShowTermsConditions(false);
                             };
                             const [isModalOpenpricing, setIsModalOpenpricing] = useState(false);
-
-                  
-                            const Expert = packageData.Travelexpert; // Access travel expert object
-                  
-                            const Insurance = packageData.Insurance; // Access the visa object directly
-
-                            const visa = packageData.visa; // Access the visa object directly
-        
                             const [showSlider, setShowSlider] = useState(false);
-
                             const [selectedImages, setSelectedImages] = useState([]);
-                            const handleImageClick = (images) => {
-                              setSelectedImages(images);
-                              setShowSlider(true);  // Show the modal with the slider
-                          };
+                            const [isOpen, setIsOpen] = useState(null);
                         
         const [airportOptions, setAirportOptions] = useState([
           { value: "BLR", label: "Bangalore (BLR)" },
@@ -1270,125 +1254,13 @@ if (addedActivity) {
           { value: "LHR", label: "London Heathrow (LHR)" },
           { value: "JFK", label: "New York (JFK)" },
         ]);
-        const [formData, setFormData] = useState({ ...packageData });
-      
-          // Handle Dropdown Change
-          const handleInputChange = (selectedOption) => {
-            setFormData({ ...formData, TravellingFrom: selectedOption });
-          };
-      
-        // Save Changes
-        const handleSave = () => {
-          // Update the first package with the new form data
-          setPackages([formData]);
-          setIsModalOpenpricing(false);
-        };
-        const calculateTripCosts = (packageData) => {
-          let hotelTotal = 0;
-          let transferTotal = 0;
-          let activityTotal = 0;
-        
-          // Loop over destinations and their dayWiseList
-          if (packageData?.Days) {
-            packageData.Days.forEach((day, dayIndex) => {
-              const daySchedules = day?.schedule || [];
-          
-              daySchedules.forEach(schedule => {
-          
-                // --- Hotel ---
-                if (Array.isArray(schedule.Hotels)) {
-                  schedule.Hotels.forEach(hotel => {
-                    const hotelAmount = hotel?.Hotelprice;
-                    const isValidHotelAmount = hotelAmount && !isNaN(Number(hotelAmount));
-          
-                    if (isValidHotelAmount) {
-                      // Count how many nights this hotel stays the same across days
-                      let stayNights = 1;
-                      for (let i = dayIndex + 1; i < packageData.Days.length; i++) {
-                        const nextDaySchedules = packageData.Days[i]?.schedule || [];
-                        const hasSameHotel = nextDaySchedules.some(sch =>
-                          sch.Hotels?.some(h => h?.Hotelid === hotel?.Hotelid)
-                        );
-          
-                        if (hasSameHotel) {
-                          stayNights++;
-                        } else {
-                          break;
-                        }
-                      }
-          
-                      hotelTotal += Number(hotelAmount) * stayNights;
-                    }
-                  });
-                }
-          
-                // --- Transfer ---
-                if (Array.isArray(schedule.Transfer)) {
-                  schedule.Transfer.forEach(transfer => {
-                    const amount = transfer?.Transferamount;
-                    if (!isNaN(Number(amount))) {
-                      transferTotal += Number(amount);
-                    }
-                  });
-                }
-          
-                // --- Activity ---
-                if (Array.isArray(schedule.Activities)) {
-                  schedule.Activities.forEach(activity => {
-                    const amount = activity?.Activityprice;
-                    if (!isNaN(Number(amount))) {
-                      activityTotal += Number(amount);
-                    }
-                  });
-                }
-          
-              });
-            });
-          };
-          
-        
-          // Insurance
-          const insuranceCost = packageData.itineraryAdditionalInfo?.insurance?.insurancePrice || 0;
-        
-          // Visa
-          const visaCost = packageData.itineraryAdditionalInfo?.visa?.visaIncluded ? 2500 : 0;
-        
-          // Total travelers
-          const totalTravelers = (packageData.NoofAdults || 0) + (packageData.NoofChildren || 0) + (packageData.NoofInfants || 0);
-        
-          // Final cost calculation
-          const baseCost = hotelTotal + transferTotal + activityTotal + insuranceCost + visaCost;
-          const totalTripCost = baseCost * totalTravelers;
-        
-          // TCS
-          const tcsPercentage = totalTripCost > 700000 ? 0.2 : 0.05;
-          const tcsAmount = totalTripCost * tcsPercentage;
-        
-          const totalPrice = totalTripCost + tcsAmount;
-        
-          return {
-            totalTripCost,
-            tcsAmount,
-            totalPrice
-          };
-        };
-        const { totalTripCost, tcsAmount, totalPrice } = calculateTripCosts(packageData);
-        const discount = packageData.DiscountedPrice;
-        const discountType =
-          typeof discount === "string" && discount.toString().includes("%")
-            ? "PERCENT"
-            : "AMOUNT";
-        let discountedAmount = 0; 
-        if (discountType === "PERCENT") {
-          const discountValue = parseFloat(discount.toString().replace("%", "").trim());
-          discountedAmount = (totalPrice * discountValue) / 100;
-        } else {
-          discountedAmount = Number(discount);
-        }  
-        const totalPayableAmount = totalPrice - discountedAmount;
+        const [formData, setFormData] = useState({});
 
-
-
+        useEffect(() => {
+          if (packageData) {
+            setFormData({ ...packageData });
+          }
+        }, [packageData]);
 
 
 
@@ -1434,12 +1306,114 @@ if (addedActivity) {
                     window.removeEventListener('scroll', handleScrollHighlight);
                 };
             }, []);
-        
-        // State to track visibility of each section
-        const [isOpen, setIsOpen] = useState(null);
-            // Function to toggle each section
+
+    if (!packageData) {
+        return <h1>Exclusion data not found</h1>;
+    }
+
+                            const Expert = packageData.Travelexpert;
+                            const Insurance = packageData.Insurance;
+                            const visa = packageData.visa;
+
+                            const handleImageClick = (images) => {
+                              setSelectedImages(images);
+                              setShowSlider(true);
+                          };
+
+          const handleInputChange = (selectedOption) => {
+            setFormData({ ...formData, TravellingFrom: selectedOption });
+          };
+
+        const handleSave = () => {
+          setPackages([formData]);
+          setIsModalOpenpricing(false);
+        };
+
+        const calculateTripCosts = (pkg) => {
+          let hotelTotal = 0;
+          let transferTotal = 0;
+          let activityTotal = 0;
+
+          if (pkg?.Days) {
+            pkg.Days.forEach((day, dayIndex) => {
+              const daySchedules = day?.schedule || [];
+
+              daySchedules.forEach(schedule => {
+                if (Array.isArray(schedule.Hotels)) {
+                  schedule.Hotels.forEach(hotel => {
+                    const hotelAmount = hotel?.Hotelprice;
+                    const isValidHotelAmount = hotelAmount && !isNaN(Number(hotelAmount));
+
+                    if (isValidHotelAmount) {
+                      let stayNights = 1;
+                      for (let i = dayIndex + 1; i < pkg.Days.length; i++) {
+                        const nextDaySchedules = pkg.Days[i]?.schedule || [];
+                        const hasSameHotel = nextDaySchedules.some(sch =>
+                          sch.Hotels?.some(h => h?.Hotelid === hotel?.Hotelid)
+                        );
+
+                        if (hasSameHotel) {
+                          stayNights++;
+                        } else {
+                          break;
+                        }
+                      }
+
+                      hotelTotal += Number(hotelAmount) * stayNights;
+                    }
+                  });
+                }
+
+                if (Array.isArray(schedule.Transfer)) {
+                  schedule.Transfer.forEach(transfer => {
+                    const amount = transfer?.Transferamount;
+                    if (!isNaN(Number(amount))) {
+                      transferTotal += Number(amount);
+                    }
+                  });
+                }
+
+                if (Array.isArray(schedule.Activities)) {
+                  schedule.Activities.forEach(activity => {
+                    const amount = activity?.Activityprice;
+                    if (!isNaN(Number(amount))) {
+                      activityTotal += Number(amount);
+                    }
+                  });
+                }
+              });
+            });
+          }
+
+          const insuranceCost = pkg.itineraryAdditionalInfo?.insurance?.insurancePrice || 0;
+          const visaCost = pkg.itineraryAdditionalInfo?.visa?.visaIncluded ? 2500 : 0;
+          const totalTravelers = (pkg.NoofAdults || 0) + (pkg.NoofChildren || 0) + (pkg.NoofInfants || 0);
+          const baseCost = hotelTotal + transferTotal + activityTotal + insuranceCost + visaCost;
+          const totalTripCost = baseCost * totalTravelers;
+          const tcsPercentage = totalTripCost > 700000 ? 0.2 : 0.05;
+          const tcsAmount = totalTripCost * tcsPercentage;
+          const totalPrice = totalTripCost + tcsAmount;
+
+          return { totalTripCost, tcsAmount, totalPrice };
+        };
+
+        const { totalTripCost, tcsAmount, totalPrice } = calculateTripCosts(packageData);
+        const discount = packageData.DiscountedPrice;
+        const discountType =
+          typeof discount === "string" && discount.toString().includes("%")
+            ? "PERCENT"
+            : "AMOUNT";
+        let discountedAmount = 0;
+        if (discountType === "PERCENT") {
+          const discountValue = parseFloat(discount.toString().replace("%", "").trim());
+          discountedAmount = (totalPrice * discountValue) / 100;
+        } else {
+          discountedAmount = Number(discount);
+        }
+        const totalPayableAmount = totalPrice - discountedAmount;
+
             const toggleSection = (section) => {
-                if (!isMobile) return; // No toggling on desktop
+                if (!isMobile) return;
                 setIsOpen((prevSection) => (prevSection === section ? null : section));
             };
         

@@ -114,6 +114,29 @@ const ItineraryTabs = ({packages, setPackages}) => {
 
 // State to track visibility of each section
 const [isOpen, setIsOpen] = useState(null);
+const [ShowTermsConditions, setShowTermsConditions] = useState(false);
+const [modalContent, setModalContent] = useState({ title: '', body: '' });
+const [airportOptions, setAirportOptions] = useState([
+    { value: "BLR", label: "Bangalore (BLR)" },
+    { value: "DEL", label: "Delhi (DEL)" },
+    { value: "BOM", label: "Mumbai (BOM)" },
+    { value: "MAA", label: "Chennai (MAA)" },
+    { value: "HYD", label: "Hyderabad (HYD)" },
+    { value: "CCU", label: "Kolkata (CCU)" },
+    { value: "GOI", label: "Goa (GOI)" },
+    { value: "DXB", label: "Dubai (DXB)" },
+    { value: "LHR", label: "London Heathrow (LHR)" },
+    { value: "JFK", label: "New York (JFK)" },
+]);
+const [isModalOpenpricing, setIsModalOpenpricing] = useState(false);
+const [formData, setFormData] = useState({});
+
+useEffect(() => {
+    if (packageData) {
+        setFormData({ ...packageData });
+    }
+}, [packageData]);
+
     // Function to toggle each section
     const toggleSection = (section) => {
         if (!isMobile) return; // No toggling on desktop
@@ -138,11 +161,10 @@ const [isOpen, setIsOpen] = useState(null);
 
 
 
-          if (!packageData) {
-            return <h1>Exclusion data not found</h1>;
-          }
-      const [ShowTermsConditions, setShowTermsConditions] = useState(false);
-      const [modalContent, setModalContent] = useState({ title: '', body: '' });
+    if (!packageData) {
+        return <h1>Exclusion data not found</h1>;
+    }
+
         const handleTerms = (title, body) => {
             console.log('Open Terms when clicked');
             setModalContent({ title, body });
@@ -152,33 +174,13 @@ const [isOpen, setIsOpen] = useState(null);
             setShowTermsConditions(false);
           };
 
-          const Expert = packageData.Travelexpert; // Access travel expert object
+          const Expert = packageData.Travelexpert;
 
-
-
-          const [airportOptions, setAirportOptions] = useState([
-              { value: "BLR", label: "Bangalore (BLR)" },
-              { value: "DEL", label: "Delhi (DEL)" },
-              { value: "BOM", label: "Mumbai (BOM)" },
-              { value: "MAA", label: "Chennai (MAA)" },
-              { value: "HYD", label: "Hyderabad (HYD)" },
-              { value: "CCU", label: "Kolkata (CCU)" },
-              { value: "GOI", label: "Goa (GOI)" },
-              { value: "DXB", label: "Dubai (DXB)" },
-              { value: "LHR", label: "London Heathrow (LHR)" },
-              { value: "JFK", label: "New York (JFK)" },
-            ]);
-            const [isModalOpenpricing, setIsModalOpenpricing] = useState(false);
-            const [formData, setFormData] = useState({ ...packageData });
-          
-              // Handle Dropdown Change
               const handleInputChange = (selectedOption) => {
                 setFormData({ ...formData, TravellingFrom: selectedOption });
               };
-          
-            // Save Changes
+
             const handleSave = () => {
-              // Update the first package with the new form data
               setPackages([formData]);
               setIsModalOpenpricing(false);
             };
@@ -384,7 +386,7 @@ const [isOpen, setIsOpen] = useState(null);
                         )}
                         </h2>
                         {/* {!isMobile || isOpen === "activity" ? <Activities packages={packages} /> : null } */}
-                        {!isMobile || isOpen === "activity" ? <Activity packages={packages} /> : null }
+                        {!isMobile || isOpen === "activity" ? <Activity packages={packages} setPackages={setPackages} /> : null }
                     </div>
 
                     {/* Visa Section */}

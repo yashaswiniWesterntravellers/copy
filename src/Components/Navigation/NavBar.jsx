@@ -5,6 +5,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoIosSearch } from "react-icons/io";
 import { FaUser } from "react-icons/fa";
 import { Button } from 'primereact/button';
+import { Avatar } from 'primereact/avatar';
 import "./navbar.css";
 import { GoHomeFill } from "react-icons/go";
 import { IoArrowBack } from "react-icons/io5";

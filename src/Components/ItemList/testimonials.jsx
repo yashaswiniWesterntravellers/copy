@@ -7,7 +7,7 @@ import RatingStars from '../Rating/RatingStars';
 
 
 
-export const Testimonials = ({ testimonialheading = "Customer Testimonials", reviewdata = reviewData }) => {
+export const Testimonials = ({ testimonialheading = "Customer Testimonials", reviewdata = [] }) => {
   const [visibleCount, setVisibleCount] = useState(10);
   const [selectedImages, setSelectedImages] = useState([]);
   const [showSlider, setShowSlider] = useState(false);
